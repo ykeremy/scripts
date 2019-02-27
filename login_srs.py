@@ -1,9 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import poplib, email
+import poplib
+import email
 
 #############
-# user info # 
+# user info #
 #############
 
 # SRS_USERNAME = "to be filled by the user"
@@ -11,8 +12,8 @@ import poplib, email
 # MAIL_USERNAME = "to be filled by the user"
 # MAIL_PWD = "to be filled by the user"
 
-browser = webdriver.Firefox() 	# for Firefox geckodriver must be in the path of 
-				# your OS. For Chrome or any other modification is necessary.
+browser = webdriver.Firefox() 	# for Firefox geckodriver must be in the path of
+# your OS. For Chrome or any other modification is necessary.
 
 # go to the login site
 browser.get("https://stars.bilkent.edu.tr/srs")
@@ -29,7 +30,8 @@ password.send_keys(SRS_PWD)
 button = browser.find_element_by_css_selector("[name='yt0']")
 button.click()
 
-in_verif_code = browser.find_element_by_css_selector("[id='EmailVerifyForm_verifyCode']")
+in_verif_code = browser.find_element_by_css_selector(
+    "[id='EmailVerifyForm_verifyCode']")
 button = browser.find_element_by_css_selector("[name='yt0']")
 
 #######################################
@@ -51,7 +53,8 @@ latest_email = webmail.top(latest_mail_id[0], 10)
 latest_email = str(latest_email[1])
 
 # parse verification code
-index = 19 + latest_email.find("Verification Code: ") 	# verification starts at 19th index
+# verification starts at 19th index
+index = 19 + latest_email.find("Verification Code: ")
 verif_code = latest_email[index:index + 5] 		# verification code is 5 digits
 print(verif_code)
 
