@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import poplib
 import email
+import time
 
 #############
 # user info #
@@ -30,6 +31,7 @@ password.send_keys(SRS_PWD)
 button = browser.find_element_by_css_selector("[name='yt0']")
 button.click()
 
+time.sleep(0.5)
 in_verif_code = browser.find_element_by_css_selector(
     "[id='EmailVerifyForm_verifyCode']")
 button = browser.find_element_by_css_selector("[name='yt0']")
